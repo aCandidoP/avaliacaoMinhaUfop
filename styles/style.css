@@ -15,3 +15,28 @@
     height: 150px;
     width: 400px;
 }
+
+.hiddenRadio{
+    display: none;
+  }
+  .star{
+    list-style-type: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    color: #ffe500;
+    font-size: 50px;
+  }
+  /* #9aa39e GRAY */
+  
+  .star::before{
+    content: "\2605"; /*estrelas cheias ver site toptal*/
+  }
+  .star.ativo ~ .star::before{
+    content: "\2606"; /*estrelas vazias*/
+  }
+  .fiveStars:hover .star::before{
+    content: "\2605"; /*estrelas cheias*/
+  }
+  .star:hover ~ .star::before{
+    content: "\2606"; /*estrelas vazias*/
+  }
