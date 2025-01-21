@@ -38,7 +38,7 @@
     content: "\2605"; /* Estrela cheia */
 }
 
-/* Quando o mouse passa por uma estrela, ela e todas as anteriores devem se tornar cheias */
+/* Define o estilo para estrelas preenchidas quando a classe 'hover' ou 'ativo' é aplicada */
 .fiveStars .star.hover::before {
     content: "\2605"; /* Estrela cheia ao passar o mouse */
 }
