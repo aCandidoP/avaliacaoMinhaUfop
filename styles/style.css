@@ -19,24 +19,42 @@
 .hiddenRadio{
     display: none;
   }
-  .star{
+
+  .star {
     list-style-type: none;
     border: 1px solid #fff;
     cursor: pointer;
     color: #ffe500;
     font-size: 50px;
-  }
-  /* #9aa39e GRAY */
-  
-  .star::before{
-    content: "\2605"; /*estrelas cheias ver site toptal*/
-  }
-  .star.ativo ~ .star::before{
-    content: "\2606"; /*estrelas vazias*/
-  }
-  .fiveStars:hover .star::before{
-    content: "\2605"; /*estrelas cheias*/
-  }
-  .star:hover ~ .star::before{
-    content: "\2606"; /*estrelas vazias*/
-  }
+}
+
+/* Estrela vazia */
+.star::before {
+    content: "\2606"; /* Estrela vazia */
+}
+
+/* Estrela ativa (cheia) */
+.star.ativo::before {
+    content: "\2605"; /* Estrela cheia */
+}
+
+/* Quando o mouse passa por uma estrela, ela e todas as anteriores devem se tornar cheias */
+.fiveStars .star.hover::before {
+    content: "\2605"; /* Estrela cheia ao passar o mouse */
+}
+
+/* Manter a exibição das estrelas vazias após a estrela com hover */
+.fiveStars .star:hover ~ .star::before {
+    content: "\2606"; /* Estrelas vazias */
+}
+
+/* Estrela preenchida e visível enquanto estiver no hover */
+.fiveStars .star:hover::before {
+    content: "\2605"; /* Estrela cheia */
+}
+
+/* Quando o mouse sai, remove a classe de hover e restaura o estado */
+.fiveStars .star:hover,
+.fiveStars .star:hover ~ .star::before {
+    content: "\2606"; /* Estrelas vazias */
+}
