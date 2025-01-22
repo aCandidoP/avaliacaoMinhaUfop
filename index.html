@@ -41,8 +41,8 @@ crossorigin="anonymous" defer></script>
 
     <div class="container d-flex align-items-start justify-content-center" id="labelsStars">
         <div class="row w-100 justify-content-center my-5">
-            <div class="col-md-3">
-                <label for="fiveStar">Avalie o serviço: </label>
+            <div class="col-md-3 text-center">
+                <label for="fiveStar" class="">Avalie o serviço: </label>
                
                     <div class="fiveStars">
                         <label class="star ativo" data-avaliacao="1">
@@ -61,6 +61,7 @@ crossorigin="anonymous" defer></script>
                         <input class="hiddenRadio" type="radio" name="numStar" value="5">
                         </label>
                     </div>
+                    <p id="avaliacao-descritiva" class="text-center mt-1"></p>
 
             </div>
         </div>
@@ -69,11 +70,9 @@ crossorigin="anonymous" defer></script>
     <div class="container d-flex align-items-center justify-content-center" id="labelsComments">
         <div class="row w-100 justify-content-center my-5">
             <div class="col-md-3">
-                <label for="floatingTextarea">Comentários: </label>
-
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" maxlength="200"></textarea>
-                    <label for="floatingTextarea">Comments</label>
+                    <textarea class="form-control" disabled id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Escreva um comentário</label>
                 </div>
 
             </div>

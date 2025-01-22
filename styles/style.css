@@ -9,11 +9,12 @@
 
 #labelsComments {
     border: 1px solid black;
+    
 }
 
 #floatingTextarea{
     height: 150px;
-    width: 400px;
+    
 }
 
 .hiddenRadio{
