@@ -71,10 +71,12 @@ crossorigin="anonymous" defer></script>
         <div class="row w-100 d-flex justify-content-center my-5">
             <div class="col-md-3">
                 <div class="form-floating">
-                    <textarea class="form-control" disabled id="floatingTextarea"></textarea>
+                    <textarea class="form-control" disabled id="floatingTextarea" maxlength="200"></textarea>
                     <label for="floatingTextarea">Escreva um comentário</label>
                 </div>
-
+                <div id="countercss">
+                    <span> Você digitou </span><span id="contador">0</span><span> de </span><span id="tamtext">0</span><span> caracteres.</span>
+                </div>
             </div>
         </div>
     </div>

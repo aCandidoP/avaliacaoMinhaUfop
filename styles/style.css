@@ -65,3 +65,8 @@
 .fiveStars .star:hover ~ .star::before {
     content: "\2606"; /* Estrelas vazias */
 }
+
+#countercss{
+    font-size: smaller;
+    font-family: Arial, Helvetica, sans-serif;
+}
