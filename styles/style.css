@@ -12,8 +12,14 @@
     
 }
 
-#floatingTextarea{
+#floatingTextarea {
     height: 150px;
+    
+}
+
+#buttonSubmit {
+    background-color: rgb(111, 23, 23);
+    border: none;
     
 }
 

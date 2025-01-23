@@ -83,10 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (ratingAtivo) {
             avaliacaoDescritiva.textContent = descricoes[ratingAtivo];
         }
-    });
-
-     // Condicional para habilitar formulário de comentários
-     
-
+    }); 
              
 });

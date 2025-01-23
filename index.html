@@ -13,9 +13,9 @@ crossorigin="anonymous" defer></script>
     <title>Avaliação Minha Ufop</title>
 </head>
 <body>
-    <div class="container d-flex align-items-center justify-content-center gap-5" id="labels">
-        <div class="row w-100 justify-content-center my-5">
-            <div class="col-md-3">
+    <div class="container d-flex" id="labels">
+        <div class="row w-100 d-flex justify-content-center my-5">
+            <div class="col-md-3 my-2">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Escolha um Serviço</option>
                     <option value="1">One</option>
@@ -23,7 +23,7 @@ crossorigin="anonymous" defer></script>
                     <option value="3">Three</option>
                   </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 my-2">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Usuário</option>
                     <option value="1">One</option>
@@ -31,7 +31,7 @@ crossorigin="anonymous" defer></script>
                     <option value="3">Three</option>
                   </select>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-md-3 my-2 text-center">
                 <select class="form-select" aria-label="Default select example">
                     <option selected disabled></option>
                   </select>
@@ -39,8 +39,8 @@ crossorigin="anonymous" defer></script>
         </div>
     </div>
 
-    <div class="container d-flex align-items-start justify-content-center" id="labelsStars">
-        <div class="row w-100 justify-content-center my-5">
+    <div class="container d-flex" id="labelsStars">
+        <div class="row w-100 d-flex justify-content-center my-5">
             <div class="col-md-3 text-center">
                 <label for="fiveStar" class="">Avalie o serviço: </label>
                
@@ -67,14 +67,22 @@ crossorigin="anonymous" defer></script>
         </div>
     </div>
 
-    <div class="container d-flex align-items-center justify-content-center" id="labelsComments">
-        <div class="row w-100 justify-content-center my-5">
+    <div class="container d-flex" id="labelsComments">
+        <div class="row w-100 d-flex justify-content-center my-5">
             <div class="col-md-3">
                 <div class="form-floating">
                     <textarea class="form-control" disabled id="floatingTextarea"></textarea>
                     <label for="floatingTextarea">Escreva um comentário</label>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-flex mt-4">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-3 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" id="buttonSubmit">Enviar Avaliação</button>
             </div>
         </div>
     </div>
