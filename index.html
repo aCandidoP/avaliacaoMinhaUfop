@@ -13,81 +13,84 @@ crossorigin="anonymous" defer></script>
     <title>Avaliação Minha Ufop</title>
 </head>
 <body>
-    <div class="container d-flex" id="labels">
-        <div class="row w-100 d-flex justify-content-center my-5">
-            <div class="col-md-3 my-2">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Escolha um Serviço</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-            </div>
-            <div class="col-md-3 my-2">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Usuário</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-            </div>
-            <div class="col-md-3 my-2 text-center">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected disabled></option>
-                  </select>
+    <form action="" method="POST">
+        <div class="container d-flex" id="labels">
+            <div class="row w-100 d-flex justify-content-center my-5">
+                <div class="col-md-3 my-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Escolha um Serviço</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+                <div class="col-md-3 my-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Usuário</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+                <div class="col-md-3 my-2 text-center">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected disabled></option>
+                      </select>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container d-flex" id="labelsStars">
-        <div class="row w-100 d-flex justify-content-center my-5">
-            <div class="col-md-3 text-center">
-                <label for="fiveStar" class="">Avalie o serviço: </label>
-               
-                    <div class="fiveStars">
-                        <label class="star ativo" data-avaliacao="1">
-                        <input class="hiddenRadio" type="radio" name="numStar" value="1">              
-                        </label>
-                        <label class="star" data-avaliacao="2">
-                        <input class="hiddenRadio" type="radio" name="numStar" value="2">
-                        </label>
-                        <label class="star" data-avaliacao="3">
-                        <input class="hiddenRadio" type="radio" name="numStar" value="3">
-                        </label>
-                        <label class="star" data-avaliacao="4">
-                        <input class="hiddenRadio" type="radio" name="numStar" value="4">
-                        </label>
-                        <label class="star" data-avaliacao="5">
-                        <input class="hiddenRadio" type="radio" name="numStar" value="5">
-                        </label>
+    
+        <div class="container d-flex" id="labelsStars">
+            <div class="row w-100 d-flex justify-content-center my-5">
+                <div class="col-md-3 text-center">
+                    <label for="fiveStar" class="">Avalie o serviço: </label>
+                   
+                        <div class="fiveStars">
+                            <label class="star ativo" data-avaliacao="1">
+                            <input class="hiddenRadio" type="radio" name="numStar" value="1">              
+                            </label>
+                            <label class="star" data-avaliacao="2">
+                            <input class="hiddenRadio" type="radio" name="numStar" value="2">
+                            </label>
+                            <label class="star" data-avaliacao="3">
+                            <input class="hiddenRadio" type="radio" name="numStar" value="3">
+                            </label>
+                            <label class="star" data-avaliacao="4">
+                            <input class="hiddenRadio" type="radio" name="numStar" value="4">
+                            </label>
+                            <label class="star" data-avaliacao="5">
+                            <input class="hiddenRadio" type="radio" name="numStar" value="5">
+                            </label>
+                        </div>
+                        <p id="avaliacao-descritiva" class="text-center mt-1"></p>
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="container d-flex" id="labelsComments">
+            <div class="row w-100 d-flex justify-content-center my-5">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <textarea class="form-control" disabled id="floatingTextarea" maxlength="200"></textarea>
+                        <label for="floatingTextarea">Escreva um comentário</label>
                     </div>
-                    <p id="avaliacao-descritiva" class="text-center mt-1"></p>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container d-flex" id="labelsComments">
-        <div class="row w-100 d-flex justify-content-center my-5">
-            <div class="col-md-3">
-                <div class="form-floating">
-                    <textarea class="form-control" disabled id="floatingTextarea" maxlength="200"></textarea>
-                    <label for="floatingTextarea">Escreva um comentário</label>
-                </div>
-                <div id="countercss">
-                    <span> Você digitou </span><span id="contador">0</span><span> de </span><span id="tamtext">0</span><span> caracteres.</span>
+                    <div id="countercss">
+                        <span> Você digitou </span><span id="contador">0</span><span> de </span><span id="tamtext">0</span><span> caracteres.</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container d-flex mt-4">
-        <div class="row w-100 justify-content-center mb-5">
-            <div class="col-md-3 d-flex justify-content-center">
-                <input type="submit" class="btn btn-primary" id="buttonSubmit" value="Enviar Avaliação">
+    
+        <div class="container d-flex mt-4">
+            <div class="row w-100 justify-content-center mb-5">
+                <div class="col-md-3 d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary" id="buttonSubmit" value="Enviar Avaliação">
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+    
 
 </body>
 </html>
