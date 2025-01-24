@@ -86,3 +86,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }); 
              
 });
+
+
+const text = document.getElementById('floatingTextarea');
+const tamanho = text.getAttribute('maxlength');
+const counter = document.getElementById('contador');
+const tam = document.getElementById('tamtext');
+
+tam.textContent = tamanho;
+
+let countPress = 0;
+let countSpace = 0;
+
+text.addEventListener('input', function(event){    
+    var escrito = text.value.length;
+    counter.textContent = escrito;
+});
