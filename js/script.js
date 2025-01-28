@@ -102,3 +102,15 @@ text.addEventListener('input', function(event){
     var escrito = text.value.length;
     counter.textContent = escrito;
 });
+
+const emailusuario = document.getElementById('emailusuariojs');
+var select = document.getElementById("nomeusuariojs");
+select.addEventListener("click", function (){
+    emailusuario.textContent = select.options[select.selectedIndex].value;
+});
+
+select.addEventListener("keydown", function (event){
+    if(event.key === 'Enter'){
+        emailusuario.textContent = select.options[select.selectedIndex].value;
+    }
+});

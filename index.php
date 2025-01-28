@@ -1,3 +1,34 @@
+<?php
+    require "src/conexao-bd.php";
+
+    require "src/model/Servicos.php";
+    require "src/repository/ServicosRepository.php";
+    $servicosRepository = new ServicosRepository($pdo);
+    $servicos = $servicosRepository->buscarTodos();
+
+
+    require "src/model/Usuarios.php";
+    require "src/repository/UsuariosRepository.php";
+    $usuariosRepository = new UsuariosRepository($pdo);
+    $usuarios = $usuariosRepository->buscarTodos();
+
+
+    require "src/model/Avaliacoes.php";
+    require "src/repository/AvaliacoesRepository.php";
+    if(isset($_POST['enviar'])){
+        $avaliacoes = new Avaliacoes(
+            $_POST['selectservico'],
+            $_POST['selectemail'],
+            $_POST['numStar'],
+            $_POST['comentario'],
+            date("d/m/Y H:i:s")
+        );
+        $avaliacoesRepository = new AvaliacoesRepository($pdo);
+        $avaliacoesRepository->salvar($avaliacoes);
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,25 +48,25 @@ crossorigin="anonymous" defer></script>
         <div class="container d-flex" id="labels">
             <div class="row w-100 d-flex justify-content-center my-5">
                 <div class="col-md-3 my-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Escolha um Serviço</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                <select class="form-select" aria-label="Default select example" name="selectservico">
+                        <option selected disabled>Escolha um Serviço</option>
+                        <?php foreach ($servicos as $servico): ?>
+                            <option> <?= $servico->getServicoMinhaUfop() ?> </option>
+                        <?php endforeach; ?>
                       </select>
                 </div>
                 <div class="col-md-3 my-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Usuário</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                <select class="form-select" aria-label="Default select example" name="selectnome" id="nomeusuariojs">
+                        <option value="---" selected disabled>Usuário</option>
+                        <?php foreach ($usuarios as $usuario): ?>
+                            <option value="<?= $usuario->getEmail() ?>"> <?= $usuario->getNome() ?> </option>
+                        <?php endforeach; ?>
                       </select>
                 </div>
                 <div class="col-md-3 my-2 text-center">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected disabled></option>
-                      </select>
+                    <select class="form-select" aria-label="Default select example" name="selectemail">
+                        <option id="emailusuariojs" selected>---</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -72,7 +103,7 @@ crossorigin="anonymous" defer></script>
             <div class="row w-100 d-flex justify-content-center my-5">
                 <div class="col-md-3">
                     <div class="form-floating">
-                        <textarea class="form-control" disabled id="floatingTextarea" maxlength="200"></textarea>
+                        <textarea class="form-control" disabled id="floatingTextarea" maxlength="200" name="comentario"></textarea>
                         <label for="floatingTextarea">Escreva um comentário</label>
                     </div>
                     <div id="countercss">
@@ -85,7 +116,7 @@ crossorigin="anonymous" defer></script>
         <div class="container d-flex mt-4">
             <div class="row w-100 justify-content-center mb-5">
                 <div class="col-md-3 d-flex justify-content-center">
-                    <input type="submit" class="btn btn-primary" id="buttonSubmit" value="Enviar Avaliação">
+                    <input type="submit" class="btn btn-primary" id="buttonSubmit" name="enviar" value="Enviar Avaliação">
                 </div>
             </div>
         </div>
