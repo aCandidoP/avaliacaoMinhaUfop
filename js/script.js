@@ -114,3 +114,9 @@ select.addEventListener("keydown", function (event){
         emailusuario.textContent = select.options[select.selectedIndex].value;
     }
 });
+
+select.addEventListener("keyup", function (event){
+    if(event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight'){
+        emailusuario.textContent = select.options[select.selectedIndex].value;
+    }
+});
