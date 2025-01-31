@@ -14,18 +14,24 @@
 
 
     require "src/model/Avaliacoes.php";
-    require "src/repository/AvaliacoesRepository.php";
+    require "src/repository/AvaliacoesRepository.php";        
     if(isset($_POST['enviar'])){
-        $avaliacoes = new Avaliacoes(
-            $_POST['selectservico'],
-            $_POST['selectnome'],
-            $_POST['numStar'],
-            $_POST['comentario'],
-            date("d/m/Y H:i:s")
-        );
-        $avaliacoesRepository = new AvaliacoesRepository($pdo);
-        $avaliacoesRepository->salvar($avaliacoes);
+        if(empty($_POST['selectservico'] && $_POST['selectnome'])){ 
+            echo  "<script>alert('Escolha um serviço e um usuario!');</script>";
+        }else{
+            $avaliacoes = new Avaliacoes(
+                $_POST['selectservico'],
+                $_POST['selectnome'],
+                $_POST['numStar'],
+                $_POST['comentario'],
+                date("d/m/Y H:i:s")
+            );
+            $avaliacoesRepository = new AvaliacoesRepository($pdo);
+            $avaliacoesRepository->salvar($avaliacoes);  
+        }
+        
     }
+
 
 ?>
 
@@ -51,7 +57,7 @@ crossorigin="anonymous" defer></script>
                 <select class="form-select" aria-label="Default select example" name="selectservico">
                         <option selected disabled>Escolha um Serviço</option>
                         <?php foreach ($servicos as $servico): ?>
-                            <option> <?= $servico->getServicoMinhaUfop() ?> </option>
+                            <option id="optionselectservico"> <?= $servico->getServicoMinhaUfop() ?> </option>
                         <?php endforeach; ?>
                       </select>
                 </div>
@@ -59,7 +65,7 @@ crossorigin="anonymous" defer></script>
                 <select class="form-select" aria-label="Default select example" name="selectnome" id="nomeusuariojs">
                         <option value="---" selected disabled>Usuário</option>
                         <?php foreach ($usuarios as $usuario): ?>
-                            <option title="<?= $usuario->getEmail() ?>"> <?= $usuario->getNome() ?> </option>
+                            <option id="optionselectnome" title="<?= $usuario->getEmail() ?>"> <?= $usuario->getNome() ?> </option>
                         <?php endforeach; ?>
                       </select>
                 </div>

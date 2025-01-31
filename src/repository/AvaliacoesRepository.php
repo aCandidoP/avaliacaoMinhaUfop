@@ -32,7 +32,7 @@ class AvaliacoesRepository
             $dados['datahora']
         );
     }
-    public function buscarTodos()
+    public function buscarFormatado()
     {
     $sql = "SELECT 
     servicoavaliado, 

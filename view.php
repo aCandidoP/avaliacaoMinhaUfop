@@ -5,7 +5,7 @@
     require "src/model/Avaliacoes.php";
     require "src/repository/AvaliacoesRepository.php";
     $avaliacoesRepository = new AvaliacoesRepository($pdo);
-    $avaliacoes = $avaliacoesRepository->buscarTodos();
+    $avaliacoes = $avaliacoesRepository->buscarFormatado();
 
 ?>
 
