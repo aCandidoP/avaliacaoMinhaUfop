@@ -18,7 +18,7 @@
     if(isset($_POST['enviar'])){
         $avaliacoes = new Avaliacoes(
             $_POST['selectservico'],
-            $_POST['selectemail'],
+            $_POST['selectnome'],
             $_POST['numStar'],
             $_POST['comentario'],
             date("d/m/Y H:i:s")
@@ -59,7 +59,7 @@ crossorigin="anonymous" defer></script>
                 <select class="form-select" aria-label="Default select example" name="selectnome" id="nomeusuariojs">
                         <option value="---" selected disabled>Usuário</option>
                         <?php foreach ($usuarios as $usuario): ?>
-                            <option value="<?= $usuario->getEmail() ?>"> <?= $usuario->getNome() ?> </option>
+                            <option title="<?= $usuario->getEmail() ?>"> <?= $usuario->getNome() ?> </option>
                         <?php endforeach; ?>
                       </select>
                 </div>
@@ -121,7 +121,16 @@ crossorigin="anonymous" defer></script>
             </div>
         </div>
     </form>
-    
+
+    <div class="container d-flex" id="labelsView">
+        <div class="row w-100 d-flex justify-content-center my-5">
+            <div class="col-md-3 text-center">
+                <form action="view.php" method="post">
+                    <input type="submit" class="botao-view" value="Ver avaliações"/>
+                </form>
+            </div>
+        </div>
+    </div>    
 
 </body>
 </html>

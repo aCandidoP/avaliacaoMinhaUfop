@@ -3,14 +3,14 @@ class Avaliacoes{
 
     private $id_avaliacao;
     private $servicoAvaliado;
-    private $emailUsuario;
+    private $nomeUsuario;
     private $numeroEstrelas;
     private $comentario;
     private $dataHora;
 
-    public function  __construct($servicoAvaliado, $emailUsuario, $numeroEstrelas, $comentario, $dataHora){
+    public function  __construct($servicoAvaliado, $nomeUsuario, $numeroEstrelas, $comentario, $dataHora){
         $this->servicoAvaliado = $servicoAvaliado;
-        $this->emailUsuario = $emailUsuario;
+        $this->nomeUsuario = $nomeUsuario;
         $this->numeroEstrelas = $numeroEstrelas;
         $this->comentario = $comentario;
         $this->dataHora = $dataHora;
@@ -51,18 +51,23 @@ class Avaliacoes{
     /**
      * @return mixed
      */
-    public function getEmailUsuario()
+    public function getNomeUsuario()
     {
-        return $this->emailUsuario;
+        return $this->nomeUsuario;
     }
 
     /**
-     * @param mixed $emailUsuario
+     * @param mixed $nomeUsuario
      */
-    public function setEmailUsuario($emailUsuario): void
+    public function setNomeUsuario($nomeUsuario): void
     {
-        $this->emailUsuario = $emailUsuario;
+        $this->nomeUsuario = $nomeUsuario;
     }
+
+    /**
+     * @return mixed
+     */
+
 
     /**
      * @return mixed

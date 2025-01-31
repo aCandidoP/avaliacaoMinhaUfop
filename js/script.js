@@ -106,17 +106,17 @@ text.addEventListener('input', function(event){
 const emailusuario = document.getElementById('emailusuariojs');
 var select = document.getElementById("nomeusuariojs");
 select.addEventListener("click", function (){
-    emailusuario.textContent = select.options[select.selectedIndex].value;
+    emailusuario.textContent = select.options[select.selectedIndex].title;
 });
 
 select.addEventListener("keydown", function (event){
     if(event.key === 'Enter'){
-        emailusuario.textContent = select.options[select.selectedIndex].value;
+        emailusuario.textContent = select.options[select.selectedIndex].title;
     }
 });
 
 select.addEventListener("keyup", function (event){
     if(event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight'){
-        emailusuario.textContent = select.options[select.selectedIndex].value;
+        emailusuario.textContent = select.options[select.selectedIndex].title;
     }
 });
