@@ -1,6 +1,6 @@
 <?php
 
-class AvaliacoesRepository
+class AvaliacaoRepository
 {
 
     private PDO $pdo;
@@ -10,21 +10,21 @@ class AvaliacoesRepository
         $this->pdo = $pdo;
     }
 
-    public function salvar($avaliacoes)
+    public function salvar($avaliacao)
     {
-        $sql = "INSERT INTO avaliacoes (servicoavaliado, nomeusuario, numeroestrelas, comentario, dataHora) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO avaliacao (servicoavaliado, nomeusuario, numeroestrelas, comentario, dataHora) VALUES (?,?,?,?,?)";
         $stm = $this->pdo->prepare($sql);
-        $stm->bindValue(1, $avaliacoes->getServicoAvaliado());
-        $stm->bindValue(2, $avaliacoes->getNomeUsuario());
-        $stm->bindValue(3, $avaliacoes->getNumeroEstrelas());
-        $stm->bindValue(4, $avaliacoes->getComentario());
-        $stm->bindValue(5, $avaliacoes->getDataHora());
+        $stm->bindValue(1, $avaliacao->getServicoAvaliado());
+        $stm->bindValue(2, $avaliacao->getNomeUsuario());
+        $stm->bindValue(3, $avaliacao->getNumeroEstrelas());
+        $stm->bindValue(4, $avaliacao->getComentario());
+        $stm->bindValue(5, $avaliacao->getDataHora());
         $stm->execute();
     }
 
-    private function formarObjeto($dados): Avaliacoes
+    private function formarObjeto($dados): Avaliacao
     {
-        return new Avaliacoes(
+        return new Avaliacao(
             $dados['servicoavaliado'],
             $dados['nomeusuario'],
             $dados['numeroestrelas'],
@@ -48,13 +48,13 @@ class AvaliacoesRepository
     END AS numeroestrelas,
     comentario, 
     datahora 
-    FROM avaliacoes";
+    FROM avaliacao";
 
         $stm = $this->pdo->query($sql);
         $dados = $stm->fetchAll(PDO::FETCH_ASSOC);
         $todosDados = array_map(
-            function ($avaliacoes){
-                return $this->formarObjeto($avaliacoes);
+            function ($avaliacao){
+                return $this->formarObjeto($avaliacao);
             }, $dados);
         return $todosDados;
     }

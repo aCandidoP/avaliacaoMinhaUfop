@@ -1,5 +1,5 @@
 <?php
-class Avaliacoes{
+class Avaliacao{
 
     private $id_avaliacao;
     private $servicoAvaliado;

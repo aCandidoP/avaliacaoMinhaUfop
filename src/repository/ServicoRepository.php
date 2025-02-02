@@ -1,6 +1,6 @@
 <?php
 
-class ServicosRepository
+class ServicoRepository
 {
     private PDO $pdo;
 
@@ -9,21 +9,21 @@ class ServicosRepository
         $this->pdo = $pdo;
     }
 
-    private function formarObjetos($dados): Servicos
+    private function formarObjetos($dados): Servico
     {
-        return new Servicos(
+        return new Servico(
             $dados['id_servico'],
             $dados['servicominhaufop']
         );
     }
     public function buscarTodos()
     {
-        $sql = "SELECT * FROM servicos";
+        $sql = "SELECT * FROM servico";
         $stm = $this->pdo->query($sql);
         $dados = $stm->fetchAll(PDO::FETCH_ASSOC);
         $todosDados = array_map(
-            function ($servicos){
-               return $this->formarObjetos($servicos);
+            function ($servico){
+               return $this->formarObjetos($servico);
             }, $dados);
         return $todosDados;
     }

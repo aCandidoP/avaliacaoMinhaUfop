@@ -1,11 +1,11 @@
 <?php
 
-    require "src/conexao-bd.php";
+    require "../src/conexao-bd.php";
 
-    require "src/model/Avaliacoes.php";
-    require "src/repository/AvaliacoesRepository.php";
-    $avaliacoesRepository = new AvaliacoesRepository($pdo);
-    $avaliacoes = $avaliacoesRepository->buscarFormatado();
+    require "../src/model/Avaliacao.php";
+    require "../src/repository/AvaliacaoRepository.php";
+    $avaliacaoRepository = new AvaliacaoRepository($pdo);
+    $avaliacao = $avaliacaoRepository->buscarFormatado();
 
 ?>
 
@@ -25,7 +25,7 @@
         crossorigin="anonymous"
         defer
     ></script>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@
 
     <h2>Comentários postados: </h2>
 
-    <div class="container d-flex" id="labelsTableView">
+    <div class="container d-flex" id="labelstablesavaliacoes">
         <div class="row w-100 d-flex justify-content-center my-5">
             <div class="col-md d-flex justify-content-center">
                 <table class="table table-success table-striped">
@@ -52,13 +52,13 @@
                     </thead>
 
                     <tbody>
-                        <?php foreach ($avaliacoes as $avaliacao): ?>
+                        <?php foreach ($avaliacao as $avaliacoes): ?>
                             <tr>
-                                <td> <?= $avaliacao->getNomeUsuario() ?> </td>
-                                <td> <?= $avaliacao->getServicoAvaliado() ?> </td>
-                                <td id="tableStar"> <?= $avaliacao->getNumeroEstrelas() ?> </td>
-                                <td> <?= $avaliacao->getComentario() ?> </td>
-                                <td> <?= $avaliacao->getDataHora() ?> </td>
+                                <td> <?= $avaliacoes->getNomeUsuario() ?> </td>
+                                <td> <?= $avaliacoes->getServicoAvaliado() ?> </td>
+                                <td id="tableStar"> <?= $avaliacoes->getNumeroEstrelas() ?> </td>
+                                <td> <?= $avaliacoes->getComentario() ?> </td>
+                                <td> <?= $avaliacoes->getDataHora() ?> </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

@@ -1,6 +1,6 @@
 <?php
 
-class UsuariosRepository
+class UsuarioRepository
 {
 
     private PDO $pdo;
@@ -10,21 +10,21 @@ class UsuariosRepository
         $this->pdo = $pdo;
     }
 
-    private function formarObjeto($dados): Usuarios
+    private function formarObjeto($dados): Usuario
     {
-        return new Usuarios(
+        return new Usuario(
             $dados['nome'],
             $dados['email']
         );
     }
     public function buscarTodos()
     {
-        $sql = "SELECT * FROM usuarios ORDER BY nome";
+        $sql = "SELECT * FROM usuario ORDER BY nome";
         $stm = $this->pdo->query($sql);
         $dados = $stm->fetchAll(PDO::FETCH_ASSOC);
         $todosDados = array_map(
-            function ($usuarios){
-                return $this->formarObjeto($usuarios);
+            function ($usuario){
+                return $this->formarObjeto($usuario);
             }, $dados);
         return $todosDados;
     }

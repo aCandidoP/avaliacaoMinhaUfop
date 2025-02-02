@@ -1,33 +1,33 @@
 <?php
     require "src/conexao-bd.php";
 
-    require "src/model/Servicos.php";
-    require "src/repository/ServicosRepository.php";
-    $servicosRepository = new ServicosRepository($pdo);
-    $servicos = $servicosRepository->buscarTodos();
+    require "src/model/Servico.php";
+    require "src/repository/ServicoRepository.php";
+    $servicoRepository = new ServicoRepository($pdo);
+    $servico = $servicoRepository->buscarTodos();
 
 
-    require "src/model/Usuarios.php";
-    require "src/repository/UsuariosRepository.php";
-    $usuariosRepository = new UsuariosRepository($pdo);
-    $usuarios = $usuariosRepository->buscarTodos();
+    require "src/model/Usuario.php";
+    require "src/repository/UsuarioRepository.php";
+    $usuarioRepository = new UsuarioRepository($pdo);
+    $usuario = $usuarioRepository->buscarTodos();
 
 
-    require "src/model/Avaliacoes.php";
-    require "src/repository/AvaliacoesRepository.php";        
+    require "src/model/Avaliacao.php";
+    require "src/repository/AvaliacaoRepository.php";        
     if(isset($_POST['enviar'])){
-        if(empty($_POST['selectservico'] && $_POST['selectnome'])){ 
-            echo  "<script>alert('Escolha um serviço e um usuario!');</script>";
+        if(empty($_POST['selectservico'] && $_POST['selectnome'] && $_POST['numStar'])){ 
+            echo  "<script>alert('Escolha um serviço, um usuário e avalie o serviço!');</script>";
         }else{
-            $avaliacoes = new Avaliacoes(
+            $avaliacao = new Avaliacao(
                 $_POST['selectservico'],
                 $_POST['selectnome'],
                 $_POST['numStar'],
                 $_POST['comentario'],
                 date("d/m/Y H:i:s")
             );
-            $avaliacoesRepository = new AvaliacoesRepository($pdo);
-            $avaliacoesRepository->salvar($avaliacoes);  
+            $avaliacaoRepository = new AvaliacaoRepository($pdo);
+            $avaliacaoRepository->salvar($avaliacao);  
         }
         
     }
@@ -56,16 +56,16 @@ crossorigin="anonymous" defer></script>
                 <div class="col-md-3 my-2">
                 <select class="form-select" aria-label="Default select example" name="selectservico">
                         <option selected disabled>Escolha um Serviço</option>
-                        <?php foreach ($servicos as $servico): ?>
-                            <option id="optionselectservico"> <?= $servico->getServicoMinhaUfop() ?> </option>
+                        <?php foreach ($servico as $servicos): ?>
+                            <option id="optionselectservico"> <?= $servicos->getServicoMinhaUfop() ?> </option>
                         <?php endforeach; ?>
                       </select>
                 </div>
                 <div class="col-md-3 my-2">
                 <select class="form-select" aria-label="Default select example" name="selectnome" id="nomeusuariojs">
                         <option value="---" selected disabled>Usuário</option>
-                        <?php foreach ($usuarios as $usuario): ?>
-                            <option id="optionselectnome" title="<?= $usuario->getEmail() ?>"> <?= $usuario->getNome() ?> </option>
+                        <?php foreach ($usuario as $usuarios): ?>
+                            <option id="optionselectnome" title="<?= $usuarios->getEmail() ?>"> <?= $usuarios->getNome() ?> </option>
                         <?php endforeach; ?>
                       </select>
                 </div>
@@ -128,11 +128,11 @@ crossorigin="anonymous" defer></script>
         </div>
     </form>
 
-    <div class="container d-flex" id="labelsView">
+    <div class="container d-flex" id="labelslistaravaliacoes">
         <div class="row w-100 d-flex justify-content-center my-5">
             <div class="col-md-3 text-center">
-                <form action="view.php" method="post">
-                    <input type="submit" class="botao-view" value="Ver avaliações"/>
+                <form action="view/listar-avaliacoes.php" method="post">
+                    <input type="submit" class="botao-listar" value="Ver avaliações"/>
                 </form>
             </div>
         </div>

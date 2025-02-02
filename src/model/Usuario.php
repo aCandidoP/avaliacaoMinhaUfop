@@ -1,7 +1,7 @@
 <?php
 
-class Usuarios
-{
+class Usuario {
+
     private $id_usuario;
     private $nome;
     private $email;

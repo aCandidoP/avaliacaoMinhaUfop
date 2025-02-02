@@ -1,6 +1,6 @@
 <?php
 
-class Servicos {
+class Servico {
 
     private $id_servico;
     private $servicoMinhaUfop;
