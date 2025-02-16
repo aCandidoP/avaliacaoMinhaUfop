@@ -60,7 +60,7 @@
 <div class="container d-flex" id="labelsBackHome">
     <div class="row w-100 d-flex justify-content-center my-5">
         <div class="col-md-3 text-center">
-            <form action="http://localhost:8080/" method="post">
+            <form action="index.php" method="post">
                 <input type="submit" class="botao-home" value="Voltar"/>
             </form>
         </div>
