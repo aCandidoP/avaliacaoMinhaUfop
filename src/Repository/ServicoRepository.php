@@ -1,15 +1,22 @@
 <?php
 
+namespace Ensa\Mvc\Repository;
+use Ensa\Mvc\Entity\Servico;
+
+require_once __DIR__ . '/../Entity/Servico.php';
+
+use PDO;
+
 class ServicoRepository
 {
-    private PDO $pdo;
+    private $pdo;
 
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
-    private function formarObjetos($dados): Servico
+    private function formarObjetos($dados)
     {
         return new Servico(
             $dados['id_servico'],

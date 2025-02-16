@@ -1,4 +1,5 @@
 <?php
+namespace Ensa\Mvc\Entity;
 class Avaliacao{
 
     private $id_avaliacao;
@@ -27,7 +28,7 @@ class Avaliacao{
     /**
      * @param mixed $id_avaliacao
      */
-    public function setIdAvaliacao($id_avaliacao): void
+    public function setIdAvaliacao($id_avaliacao)
     {
         $this->id_avaliacao = $id_avaliacao;
     }
@@ -43,7 +44,7 @@ class Avaliacao{
     /**
      * @param mixed $servicoAvaliado
      */
-    public function setServicoAvaliado($servicoAvaliado): void
+    public function setServicoAvaliado($servicoAvaliado)
     {
         $this->servicoAvaliado = $servicoAvaliado;
     }
@@ -59,7 +60,7 @@ class Avaliacao{
     /**
      * @param mixed $nomeUsuario
      */
-    public function setNomeUsuario($nomeUsuario): void
+    public function setNomeUsuario($nomeUsuario)
     {
         $this->nomeUsuario = $nomeUsuario;
     }
@@ -80,7 +81,7 @@ class Avaliacao{
     /**
      * @param mixed $numeroEstrelas
      */
-    public function setNumeroEstrelas($numeroEstrelas): void
+    public function setNumeroEstrelas($numeroEstrelas)
     {
         $this->numeroEstrelas = $numeroEstrelas;
     }
@@ -96,7 +97,7 @@ class Avaliacao{
     /**
      * @param mixed $comentario
      */
-    public function setComentario($comentario): void
+    public function setComentario($comentario)
     {
         $this->comentario = $comentario;
     }
@@ -112,7 +113,7 @@ class Avaliacao{
     /**
      * @param mixed $dataHora
      */
-    public function setDataHora($dataHora): void
+    public function setDataHora($dataHora)
     {
         $this->dataHora = $dataHora;
     }

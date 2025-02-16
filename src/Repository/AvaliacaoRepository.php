@@ -1,9 +1,16 @@
 <?php
+namespace Ensa\Mvc\Repository;
+
+use Ensa\Mvc\Entity\Avaliacao;
+use PDO;
+
+require_once __DIR__ . '/../Entity/Avaliacao.php';
+
 
 class AvaliacaoRepository
 {
 
-    private PDO $pdo;
+    private $pdo;
 
     public function __construct($pdo)
     {
@@ -22,7 +29,7 @@ class AvaliacaoRepository
         $stm->execute();
     }
 
-    private function formarObjeto($dados): Avaliacao
+    private function formarObjeto($dados)
     {
         return new Avaliacao(
             $dados['servicoavaliado'],

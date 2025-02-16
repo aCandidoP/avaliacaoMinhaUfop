@@ -1,16 +1,20 @@
 <?php
 
+namespace Ensa\Mvc\Repository;
+use Ensa\Mvc\Entity\Usuario;
+use PDO;
+require_once __DIR__ . '/../Entity/Usuario.php';
 class UsuarioRepository
 {
 
-    private PDO $pdo;
+    private $pdo;
 
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
     }
 
-    private function formarObjeto($dados): Usuario
+    private function formarObjeto($dados)
     {
         return new Usuario(
             $dados['nome'],
@@ -30,3 +34,4 @@ class UsuarioRepository
     }
 
 }
+

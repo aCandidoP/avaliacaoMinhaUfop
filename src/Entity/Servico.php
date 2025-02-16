@@ -1,5 +1,6 @@
 <?php
 
+namespace Ensa\Mvc\Entity;
 class Servico {
 
     private $id_servico;
@@ -21,7 +22,7 @@ class Servico {
     /**
      * @param mixed $id_servico
      */
-    public function setIdServico($id_servico): void
+    public function setIdServico($id_servico)
     {
         $this->id_servico = $id_servico;
     }
@@ -37,12 +38,13 @@ class Servico {
     /**
      * @param mixed $servicoMinhaUfop
      */
-    public function setServicoMinhaUfop($servicoMinhaUfop): void
+    public function setServicoMinhaUfop($servicoMinhaUfop)
     {
         $this->servicoMinhaUfop = $servicoMinhaUfop;
     }
 
 }
+
 
 
 

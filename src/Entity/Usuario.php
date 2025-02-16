@@ -1,7 +1,7 @@
 <?php
-
-class Usuario {
-
+namespace Ensa\Mvc\Entity;
+class Usuario
+{
     private $id_usuario;
     private $nome;
     private $email;
@@ -22,7 +22,7 @@ class Usuario {
     /**
      * @param mixed $id_usuario
      */
-    public function setIdUsuario($id_usuario): void
+    public function setIdUsuario($id_usuario)
     {
         $this->id_usuario = $id_usuario;
     }
@@ -38,7 +38,7 @@ class Usuario {
     /**
      * @param mixed $nome
      */
-    public function setNome($nome): void
+    public function setNome($nome)
     {
         $this->nome = $nome;
     }
@@ -54,7 +54,7 @@ class Usuario {
     /**
      * @param mixed $email
      */
-    public function setEmail($email): void
+    public function setEmail($email)
     {
         $this->email = $email;
     }
