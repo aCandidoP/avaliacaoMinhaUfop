@@ -1,4 +1,5 @@
 <?php
+
 namespace Ensa\Mvc\Repository;
 
 use Ensa\Mvc\Entity\Avaliacao;
@@ -7,29 +8,28 @@ use Ensa\Mvc\Database\DatabaseQuery;
 require_once __DIR__ . '/../Entity/Avaliacao.php';
 require_once __DIR__ . '/../Database/DatabaseQuery.php';
 
-class AvaliacaoRepository {
+class AvaliacaoRepository
+{
     private $dbQuery;
 
-    public function __construct() {
-        $this->dbQuery = new DatabaseQuery();
+    public function __construct($pdo)
+    {
+        $this->dbQuery = new DatabaseQuery($pdo);
     }
 
-    public function salvar($avaliacao) {
-        $sql = "INSERT INTO avaliacao (servicoavaliado, nomeusuario, numeroestrelas, comentario, dataHora) 
-                VALUES (?, ?, ?, ?, ?)";
-
-        $params = [
-            $avaliacao->getServicoAvaliado(),
-            $avaliacao->getNomeUsuario(),
-            $avaliacao->getNumeroEstrelas(),
-            $avaliacao->getComentario(),
-            $avaliacao->getDataHora()
-        ];
-
-        return $this->dbQuery->executeQuery($sql, $params);
+    public function salvar($avaliacao)
+    {
+        return $this->dbQuery->insert('avaliacao', [
+            'servicoavaliado' => $avaliacao->getServicoAvaliado(),
+            'nomeusuario' => $avaliacao->getNomeUsuario(),
+            'numeroestrelas' => $avaliacao->getNumeroEstrelas(),
+            'comentario' => $avaliacao->getComentario(),
+            'dataHora' => $avaliacao->getDataHora()
+        ]);
     }
 
-    public function buscarFormatado() {
+    public function buscarFormatado()
+    {
         $sql = "SELECT 
                     servicoavaliado, 
                     nomeusuario,
@@ -56,7 +56,8 @@ class AvaliacaoRepository {
         );
     }
 
-    private function formarObjeto($dados) {
+    private function formarObjeto($dados)
+    {
         return new Avaliacao(
             $dados['servicoavaliado'],
             $dados['nomeusuario'],
