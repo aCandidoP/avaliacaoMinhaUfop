@@ -2,13 +2,13 @@
 
 namespace Ensa\Mvc\Repository;
 
-use Ensa\Mvc\Entity\Usuario;
+use Ensa\Mvc\Entity\Servico;
 use Ensa\Mvc\Database\DatabaseQuery;
 
-require_once __DIR__ . '/../Entity/Usuario.php';
+require_once __DIR__ . '/../Entity/Servico.php';
 require_once __DIR__ . '/../Database/DatabaseQuery.php';
 
-class UsuarioRepository
+class ServicoRepository
 {
     private $dbQuery;
 
@@ -19,19 +19,19 @@ class UsuarioRepository
 
     private function formarObjeto($dados)
     {
-        return new Usuario(
-            $dados['nome'],
-            $dados['email']
+        return new Servico(
+            $dados['id_servico'],
+            $dados['servicominhaufop']
         );
     }
 
     public function buscarTodos()
     {
-        $dados = $this->dbQuery->select('usuario', [], 'id, nome, email');
-        
+        $dados = $this->dbQuery->select('servico', [], 'id_servico, servicominhaufop');
+
         return array_map(
-            function ($usuario) {
-                return $this->formarObjeto($usuario);
+            function ($servico) {
+                return $this->formarObjeto($servico);
             }, 
             $dados
         );
