@@ -1,5 +1,7 @@
 <?php
+namespace Ensa\Mvc\Database;
 require_once __DIR__ . '/../conexao-bd.php';
+
 
 class DatabaseQuery {
     private $db;
