@@ -1,5 +1,5 @@
 <?php
-require_once '/var/www/html/avaliacaoMinhaUfop/src/Repository/conexao-bd.php';
+require_once __DIR__ . '/../conexao-bd.php';
 
 class DatabaseQuery {
     private $db;
