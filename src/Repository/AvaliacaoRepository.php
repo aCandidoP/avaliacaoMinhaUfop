@@ -19,34 +19,34 @@ class AvaliacaoRepository
 
     public function salvar($avaliacao)
     {
-        return $this->dbQuery->insert('avaliacao', [
+        return $this->dbQuery->insertQuery('avaliacao', [
             'servicoavaliado' => $avaliacao->getServicoAvaliado(),
             'nomeusuario' => $avaliacao->getNomeUsuario(),
             'numeroestrelas' => $avaliacao->getNumeroEstrelas(),
             'comentario' => $avaliacao->getComentario(),
-            'dataHora' => $avaliacao->getDataHora()
+            'datahora' => $avaliacao->getDataHora()
         ]);
     }
 
     public function buscarFormatado()
     {
-        $sql = "SELECT 
-                    servicoavaliado, 
-                    nomeusuario,
-                    CASE
-                        WHEN numeroestrelas = 1 THEN '*'
-                        WHEN numeroestrelas = 2 THEN '* *'
-                        WHEN numeroestrelas = 3 THEN '* * *'
-                        WHEN numeroestrelas = 4 THEN '* * * *'
-                        WHEN numeroestrelas = 5 THEN '* * * * *'
-                    ELSE
-                        'NÃO ESPECIFICADO'
-                    END AS numeroestrelas,
-                    comentario, 
-                    datahora 
-                FROM avaliacao";
-
-        $dados = $this->dbQuery->fetchAll($sql);
+        $dados = $this->dbQuery->selectQuery(
+            "avaliacao", 
+            [
+                "servicoavaliado", 
+                "nomeusuario",
+                "CASE
+                    WHEN numeroestrelas = 1 THEN '*'
+                    WHEN numeroestrelas = 2 THEN '* *'
+                    WHEN numeroestrelas = 3 THEN '* * *'
+                    WHEN numeroestrelas = 4 THEN '* * * *'
+                    WHEN numeroestrelas = 5 THEN '* * * * *'
+                    ELSE 'NÃO ESPECIFICADO'
+                END AS numeroestrelas",
+                "comentario", 
+                "datahora"
+            ]
+        );
         
         return array_map(
             function ($avaliacao) {

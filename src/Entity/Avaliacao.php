@@ -1,5 +1,8 @@
 <?php
 namespace Ensa\Mvc\Entity;
+
+use DateTime;
+
 class Avaliacao{
 
     private $id_avaliacao;
@@ -107,8 +110,10 @@ class Avaliacao{
      */
     public function getDataHora()
     {
-        return $this->dataHora;
+        $data = DateTime::createFromFormat('d/m/Y H:i:s', $this->dataHora);
+        return $data ? $data->format('Y-m-d H:i:s') : null;
     }
+
 
     /**
      * @param mixed $dataHora

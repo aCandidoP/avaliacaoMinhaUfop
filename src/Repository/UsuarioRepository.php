@@ -27,7 +27,7 @@ class UsuarioRepository
 
     public function buscarTodos()
     {
-        $dados = $this->dbQuery->select('usuario', [], 'id, nome, email');
+        $dados = $this->dbQuery->selectQuery('usuario', ['id_usuario', 'nome', 'email']);
         
         return array_map(
             function ($usuario) {
