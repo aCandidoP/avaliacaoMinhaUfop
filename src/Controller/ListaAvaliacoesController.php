@@ -4,8 +4,6 @@ namespace Ensa\Mvc\Controller;
 
 use Ensa\Mvc\Repository\AvaliacaoRepository;
 
-require_once __DIR__ . '/../Repository/AvaliacaoRepository.php';
-
 class ListaAvaliacoesController implements Controller
 {
     public function __construct()

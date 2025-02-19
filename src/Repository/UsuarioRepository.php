@@ -1,17 +1,17 @@
 <?php
 
 namespace Ensa\Mvc\Repository;
+
 use Ensa\Mvc\Entity\Usuario;
-use PDO;
-require_once __DIR__ . '/../Entity/Usuario.php';
+use Ensa\Mvc\Database\DatabaseQuery;
+
 class UsuarioRepository
 {
-
-    private $pdo;
+    private $dbQuery;
 
     public function __construct($pdo)
     {
-        $this->pdo = $pdo;
+        $this->dbQuery = new DatabaseQuery($pdo);
     }
 
     private function formarObjeto($dados)
@@ -21,17 +21,17 @@ class UsuarioRepository
             $dados['email']
         );
     }
+
     public function buscarTodos()
     {
-        $sql = "SELECT * FROM usuario ORDER BY nome";
-        $stm = $this->pdo->query($sql);
-        $dados = $stm->fetchAll(PDO::FETCH_ASSOC);
-        $todosDados = array_map(
-            function ($usuario){
+        $dados = $this->dbQuery->selectQuery('usuario', ['id_usuario', 'nome', 'email']);
+        
+        return array_map(
+            function ($usuario) {
                 return $this->formarObjeto($usuario);
-            }, $dados);
-        return $todosDados;
+            }, 
+            $dados
+        );
     }
-
 }
-
+?>

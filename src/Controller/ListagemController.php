@@ -4,8 +4,6 @@ namespace Ensa\Mvc\Controller;
 use Ensa\Mvc\Repository\ServicoRepository;
 use Ensa\Mvc\Repository\UsuarioRepository;
 
-require_once __DIR__ . '/../Repository/ServicoRepository.php';
-require_once __DIR__ . '/../Repository/UsuarioRepository.php';
 class
 ListagemController implements Controller
 {

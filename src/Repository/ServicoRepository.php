@@ -3,8 +3,6 @@
 namespace Ensa\Mvc\Repository;
 use Ensa\Mvc\Entity\Servico;
 
-require_once __DIR__ . '/../Entity/Servico.php';
-
 use PDO;
 
 class ServicoRepository
